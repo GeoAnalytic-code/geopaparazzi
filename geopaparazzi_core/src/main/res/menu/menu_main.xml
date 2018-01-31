@@ -23,14 +23,13 @@
         android:orderInCategory="70"
         android:title="@string/load"
         app:showAsAction="ifRoom" />
-
     <item
         android:id="@+id/action_gps"
         android:icon="@drawable/actionbar_gps_off"
         android:orderInCategory="80"
         android:title="GPS"
         app:showAsAction="always" />
-
+<!-- SIMPLIFY
     <item
         android:id="@+id/action_gpsstatus"
         android:icon="@drawable/actionbar_gpsstatus"
@@ -38,20 +37,21 @@
         android:title="@string/gps_status"
         app:showAsAction="ifRoom" />
 
+-->
     <item
         android:id="@+id/action_settings"
         android:icon="@drawable/actionbar_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="always" />
-
+<!-- SIMPLIFY
     <item
         android:id="@+id/action_advanced_settings"
         android:icon="@drawable/actionbar_settings"
         android:orderInCategory="105"
         android:title="@string/action_advanced_settings"
         app:showAsAction="never" />
-
+-->
     <item
         android:id="@+id/action_profiles"
         android:orderInCategory="108"

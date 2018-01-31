@@ -4,5 +4,5 @@
         path="/" />
     <external-path
         name="geopaparazzi_folder"
-        path="geopaparazzi" />
+        path="TrailGuide" />
 </paths>

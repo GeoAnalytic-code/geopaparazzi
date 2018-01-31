@@ -40,11 +40,11 @@ public class DefaultImportsMenuProvider extends PluginService {
     public IBinder onBind(Intent intent) {
         if (list == null) {
             list = new MenuEntryList();
-            list.addEntry(new ImportGpxMenuEntry(getApplicationContext()));
-            list.addEntry(new ImportBookmarksMenuEntry(getApplicationContext()));
-            list.addEntry(new ImportWmsMenuEntry(getApplicationContext()));
-            list.addEntry(new ImportTantoMapurlsMenuEntry(getApplicationContext()));
-            list.addEntry(new ImportDefaultDatabaseMenuEntry(getApplicationContext()));
+// SIMPLIFY            list.addEntry(new ImportGpxMenuEntry(getApplicationContext()));
+// SIMPLIFY            list.addEntry(new ImportBookmarksMenuEntry(getApplicationContext()));
+// SIMPLIFY            list.addEntry(new ImportWmsMenuEntry(getApplicationContext()));
+// SIMPLIFY            list.addEntry(new ImportTantoMapurlsMenuEntry(getApplicationContext()));
+// SIMPLIFY            list.addEntry(new ImportDefaultDatabaseMenuEntry(getApplicationContext()));
         }
         return list;
     }

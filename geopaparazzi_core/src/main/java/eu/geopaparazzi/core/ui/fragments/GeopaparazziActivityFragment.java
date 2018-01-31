@@ -296,17 +296,21 @@ public class GeopaparazziActivityFragment extends Fragment implements View.OnLon
             GpsInfoDialogFragment gpsInfoDialogFragment = new GpsInfoDialogFragment();
             gpsInfoDialogFragment.show(getFragmentManager(), "gpsinfo dialog");
             return true;
+/*  SIMPLIFY
         } else if (i == R.id.action_gpsstatus) {
             AppsUtilities.checkAndOpenGpsStatus(getActivity());
             return true;
+*/
         } else if (i == R.id.action_settings) {
             Intent preferencesIntent = new Intent(this.getActivity(), SettingsActivity.class);
             startActivity(preferencesIntent);
             return true;
+/*  SIMPLIFY
         } else if (i == R.id.action_advanced_settings) {
             Intent advancedSettingsIntent = new Intent(this.getActivity(), AdvancedSettingsActivity.class);
             startActivity(advancedSettingsIntent);
             return true;
+*/
         } else if (i == R.id.action_profiles) {
             Intent profilesIntent = new Intent(this.getActivity(), ProfilesActivity.class);
             startActivityForResult(profilesIntent, RETURNCODE_PROFILES);
