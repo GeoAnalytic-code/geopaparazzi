@@ -29,6 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.io.File;
@@ -41,6 +42,7 @@ import java.util.List;
 import eu.geopaparazzi.core.GeopaparazziCoreActivity;
 import eu.geopaparazzi.core.database.DaoGpsLog;
 import eu.geopaparazzi.core.database.DaoNotes;
+
 import eu.geopaparazzi.core.profiles.ProfilesActivity;
 import eu.geopaparazzi.library.GPApplication;
 import eu.geopaparazzi.library.core.ResourcesManager;
@@ -86,6 +88,8 @@ import eu.geopaparazzi.core.utilities.Constants;
 import eu.geopaparazzi.core.utilities.IApplicationChangeListener;
 
 import static eu.geopaparazzi.library.util.LibraryConstants.MAPSFORGE_EXTRACTED_DB_NAME;
+
+import static eu.geopaparazzi.core.database.TableDescriptions.TABLE_NOTES;
 
 /**
  * The fragment of the main geopap view.
@@ -164,6 +168,7 @@ public class GeopaparazziActivityFragment extends Fragment implements View.OnLon
         super.onViewCreated(view, savedInstanceState);
 
         mNotesButton = (ImageButton) view.findViewById(R.id.dashboardButtonNotes);
+//        mNotesButton.setTransformationMethod(null);  // don't change to uppercase
         mNotesButton.setOnClickListener(this);
         mNotesButton.setOnLongClickListener(this);
 
@@ -200,6 +205,17 @@ public class GeopaparazziActivityFragment extends Fragment implements View.OnLon
         super.onResume();
 
         GpsServiceUtilities.triggerBroadcast(getActivity());
+/*
+//        long rowCount = GeopaparazziApplication.countRows(TABLE_NOTES);
+//        mNotesButton.setText(Long.toString(rowCount)+ " " + getString(R.string.dashboard_note_action_caption));
+        try {
+            int notesCount = DaoNotes.getNotesCount(false);
+            String caption = getString(R.string.dashboard_note_action_caption);
+            mNotesButton.setText(notesCount + " " + caption);
+        } catch (IOException e) {
+            // ignore
+        }
+*/
     }
 
     @Override
@@ -402,14 +418,14 @@ public class GeopaparazziActivityFragment extends Fragment implements View.OnLon
 
             String tooltip = imageButton.getContentDescription().toString();
 
-            if (imageButton == mNotesButton) {
+/*            if (imageButton == mNotesButton) {
                 try {
                     int notesCount = DaoNotes.getNotesCount(false);
                     tooltip += " (" + notesCount + ")";
                 } catch (IOException e) {
                     // ignore
                 }
-            } else if (imageButton == mGpslogButton) {
+            } else */if (imageButton == mGpslogButton) {
                 try {
                     int logsCount = DaoGpsLog.getGpslogsCount();
                     tooltip += " (" + logsCount + ")";

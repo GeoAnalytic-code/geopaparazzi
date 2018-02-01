@@ -19,6 +19,7 @@ package eu.geopaparazzi.core;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.DatabaseUtils;
 import android.os.Environment;
 import android.util.Log;
 
@@ -82,6 +83,14 @@ public class GeopaparazziApplication extends GPApplication {
             database = databaseManager.getDatabase(getInstance());
         }
         return database;
+    }
+
+    public static long countRows(String description)  {
+        long rowCount = -1;
+        if (database != null && database.isOpen()) {
+            rowCount = DatabaseUtils.queryNumEntries(database, description);
+        }
+        return rowCount;
     }
 
     @Override
