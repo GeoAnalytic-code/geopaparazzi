@@ -101,10 +101,10 @@ public class GeopaparazziActivityFragment extends Fragment implements View.OnLon
     private final int RETURNCODE_BROWSE_FOR_NEW_PREOJECT = 665;
     private final int RETURNCODE_PROFILES = 666;
 
-    private ImageButton mNotesButton;
-    private ImageButton mMetadataButton;
+    private Button mNotesButton;
+    private Button mMetadataButton;
     private ImageButton mMapviewButton;
-    private ImageButton mGpslogButton;
+    private Button mGpslogButton;
     private ImageButton mExportButton;
 
     private ImageButton mImportButton;
@@ -167,12 +167,13 @@ public class GeopaparazziActivityFragment extends Fragment implements View.OnLon
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mNotesButton = (ImageButton) view.findViewById(R.id.dashboardButtonNotes);
-//        mNotesButton.setTransformationMethod(null);  // don't change to uppercase
+        mNotesButton = (Button) view.findViewById(R.id.dashboardButtonNotes);
+        mNotesButton.setTransformationMethod(null);  // don't change to uppercase
         mNotesButton.setOnClickListener(this);
         mNotesButton.setOnLongClickListener(this);
 
-        mMetadataButton = (ImageButton) view.findViewById(R.id.dashboardButtonMetadata);
+        mMetadataButton = (Button) view.findViewById(R.id.dashboardButtonMetadata);
+        mMetadataButton.setTransformationMethod(null);  // don't change to uppercase
         mMetadataButton.setOnClickListener(this);
         mMetadataButton.setOnLongClickListener(this);
 
@@ -180,7 +181,8 @@ public class GeopaparazziActivityFragment extends Fragment implements View.OnLon
         mMapviewButton.setOnClickListener(this);
         mMapviewButton.setOnLongClickListener(this);
 
-        mGpslogButton = (ImageButton) view.findViewById(R.id.dashboardButtonGpslog);
+        mGpslogButton = (Button) view.findViewById(R.id.dashboardButtonGpslog);
+        mGpslogButton.setTransformationMethod(null);  // don't change to uppercase
         mGpslogButton.setOnClickListener(this);
         mGpslogButton.setOnLongClickListener(this);
 
@@ -205,17 +207,29 @@ public class GeopaparazziActivityFragment extends Fragment implements View.OnLon
         super.onResume();
 
         GpsServiceUtilities.triggerBroadcast(getActivity());
-/*
+
 //        long rowCount = GeopaparazziApplication.countRows(TABLE_NOTES);
 //        mNotesButton.setText(Long.toString(rowCount)+ " " + getString(R.string.dashboard_note_action_caption));
         try {
             int notesCount = DaoNotes.getNotesCount(false);
-            String caption = getString(R.string.dashboard_note_action_caption);
-            mNotesButton.setText(notesCount + " " + caption);
+//            String caption = getString(R.string.dashboard_note_action_caption);
+//            mNotesButton.setText(notesCount + " " + caption);
+            String caption = String.format( getString(R.string.dashboard_note_action_caption),notesCount);
+            mNotesButton.setText(caption);
         } catch (IOException e) {
             // ignore
         }
-*/
+        try {
+            int logsCount = DaoGpsLog.getGpslogsCount();
+            String caption = String.format( getString(R.string.dashboard_gpslog_action_caption),logsCount);
+            mGpslogButton.setText(caption);
+        } catch (IOException e) {
+            // ignore
+        }
+
+        String databaseName = mResourcesManager.getDatabaseFile().getName();
+        mMetadataButton.setText(databaseName);
+
     }
 
     @Override
@@ -413,26 +427,26 @@ public class GeopaparazziActivityFragment extends Fragment implements View.OnLon
 
     @Override
     public boolean onLongClick(View v) {
-        if (v instanceof ImageButton) {
-            ImageButton imageButton = (ImageButton) v;
+        if (v instanceof Button) {
+            Button button = (Button) v;
 
-            String tooltip = imageButton.getContentDescription().toString();
+            String tooltip = button.getContentDescription().toString();
 
-/*            if (imageButton == mNotesButton) {
+            if (button == mNotesButton) {
                 try {
                     int notesCount = DaoNotes.getNotesCount(false);
                     tooltip += " (" + notesCount + ")";
                 } catch (IOException e) {
                     // ignore
                 }
-            } else */if (imageButton == mGpslogButton) {
+            } else if (button == mGpslogButton) {
                 try {
                     int logsCount = DaoGpsLog.getGpslogsCount();
                     tooltip += " (" + logsCount + ")";
                 } catch (IOException e) {
                     // ignore
                 }
-            } else if (imageButton == mMetadataButton) {
+            } else if (button == mMetadataButton) {
                 try {
                     String databaseName = ResourcesManager.getInstance(getContext()).getDatabaseFile().getName();
                     tooltip += " (" + databaseName + ")";
