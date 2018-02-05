@@ -68,7 +68,7 @@
                 android:drawableTop="@drawable/ic_dashboard_gpslog_24dp"
                 android:text="@string/dashboard_gpslog_action_caption" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/dashboardButtonMapview"
                 style="@style/GeopapTheme.Button.Colored"
                 android:layout_width="match_parent"
@@ -77,7 +77,9 @@
                 android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/dashboard_mapview_action_description"
-                app:srcCompat="@drawable/ic_dashboard_mapview_24dp" />
+                app:srcCompat="@drawable/ic_dashboard_mapview_24dp"
+                android:drawableTop="@drawable/ic_dashboard_mapview_24dp"
+                android:text="@string/dashboard_mapview_action_caption" />
         </TableRow>
 
         <TableRow
@@ -85,7 +87,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <ImageButton
+            <Button
                 android:id="@+id/dashboardButtonImport"
                 style="@style/GeopapTheme.Button.Colored"
                 android:layout_width="match_parent"
@@ -94,9 +96,11 @@
                 android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/dashboard_import_action_description"
-                app:srcCompat="@drawable/ic_dashboard_import_24dp" />
+                app:srcCompat="@drawable/ic_dashboard_import_24dp"
+                android:drawableTop="@drawable/ic_dashboard_import_24dp"
+                android:text="@string/dashboard_import_action_caption" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/dashboardButtonExport"
                 style="@style/GeopapTheme.Button.Colored"
                 android:layout_width="match_parent"
@@ -105,7 +109,9 @@
                 android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/dashboard_export_action_description"
-                app:srcCompat="@drawable/ic_dashboard_export_24dp" />
+                app:srcCompat="@drawable/ic_dashboard_export_24dp"
+                android:drawableTop="@drawable/ic_dashboard_export_24dp"
+                android:text="@string/dashboard_export_action_caption" />
         </TableRow>
 
     </TableLayout>

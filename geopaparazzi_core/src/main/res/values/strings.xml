@@ -332,8 +332,11 @@
     <string name="dashboard_gpslog_action_description">Toggle gps logging</string>
     <string name="dashboard_gpslog_action_caption">%d Logs Saved</string>
     <string name="dashboard_mapview_action_description">Open the map view</string>
+    <string name="dashboard_mapview_action_caption">Map View</string>
     <string name="dashboard_import_action_description">Open the import view</string>
+    <string name="dashboard_import_action_caption">Import</string>
     <string name="dashboard_export_action_description">Open the export view</string>
+    <string name="dashboard_export_action_caption">Export</string>
     <string name="add_new_metadata">Add new metadata entry</string>
     <string name="remove_selected_metadata">Remove the selected metadata entry</string>
     <string name="metadata_insert_key">Insert a key</string>

@@ -11,10 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingBottom="4dp"
+        android:paddingBottom="8dp"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="4dp">
+        android:paddingTop="8dp">
 
         <TableRow
             android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_column="0"
-                android:layout_margin="4dp"
+                android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/dashboard_note_action_description"
                 app:srcCompat="@drawable/ic_dashboard_notes_24dp"
@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_column="1"
-                android:layout_margin="4dp"
+                android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/dashboard_metadata_action_description"
                 app:srcCompat="@drawable/ic_dashboard_metadata_24dp"
@@ -54,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_column="2"
-                android:layout_margin="4dp"
+                android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/dashboard_gpslog_action_description"
                 app:srcCompat="@drawable/ic_dashboard_gpslog_24dp"
@@ -67,37 +67,43 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <ImageButton
+            <Button
                 android:id="@+id/dashboardButtonMapview"
                 style="@style/GeopapTheme.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_column="0"
-                android:layout_margin="4dp"
+                android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/dashboard_mapview_action_description"
-                app:srcCompat="@drawable/ic_dashboard_mapview_24dp" />
+                app:srcCompat="@drawable/ic_dashboard_mapview_24dp"
+                android:drawableTop="@drawable/ic_dashboard_mapview_24dp"
+                android:text="@string/dashboard_mapview_action_caption" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/dashboardButtonImport"
                 style="@style/GeopapTheme.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_column="1"
-                android:layout_margin="4dp"
+                android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/dashboard_import_action_description"
-                app:srcCompat="@drawable/ic_dashboard_import_24dp" />
+                app:srcCompat="@drawable/ic_dashboard_import_24dp"
+                android:drawableTop="@drawable/ic_dashboard_import_24dp"
+                android:text="@string/dashboard_import_action_caption" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/dashboardButtonExport"
                 style="@style/GeopapTheme.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_column="2"
-                android:layout_margin="4dp"
+                android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/dashboard_export_action_description"
+                android:drawableTop="@drawable/ic_dashboard_export_24dp"
+                android:text="@string/dashboard_export_action_caption"
                 app:srcCompat="@drawable/ic_dashboard_export_24dp" />
         </TableRow>
 

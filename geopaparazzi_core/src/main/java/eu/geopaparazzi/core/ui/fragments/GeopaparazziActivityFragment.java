@@ -28,7 +28,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.ImageButton;
+
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -103,11 +103,10 @@ public class GeopaparazziActivityFragment extends Fragment implements View.OnLon
 
     private Button mNotesButton;
     private Button mMetadataButton;
-    private ImageButton mMapviewButton;
+    private Button mMapviewButton;
     private Button mGpslogButton;
-    private ImageButton mExportButton;
-
-    private ImageButton mImportButton;
+    private Button mExportButton;
+    private Button mImportButton;
 
     private MenuItem mGpsMenuItem;
     private OrientationSensor mOrientationSensor;
@@ -177,7 +176,8 @@ public class GeopaparazziActivityFragment extends Fragment implements View.OnLon
         mMetadataButton.setOnClickListener(this);
         mMetadataButton.setOnLongClickListener(this);
 
-        mMapviewButton = (ImageButton) view.findViewById(R.id.dashboardButtonMapview);
+        mMapviewButton = (Button) view.findViewById(R.id.dashboardButtonMapview);
+        mMapviewButton.setTransformationMethod(null);  // don't change to uppercase
         mMapviewButton.setOnClickListener(this);
         mMapviewButton.setOnLongClickListener(this);
 
@@ -186,11 +186,13 @@ public class GeopaparazziActivityFragment extends Fragment implements View.OnLon
         mGpslogButton.setOnClickListener(this);
         mGpslogButton.setOnLongClickListener(this);
 
-        mImportButton = (ImageButton) view.findViewById(R.id.dashboardButtonImport);
+        mImportButton = (Button) view.findViewById(R.id.dashboardButtonImport);
+        mImportButton.setTransformationMethod(null);  // don't change to uppercase
         mImportButton.setOnClickListener(this);
         mImportButton.setOnLongClickListener(this);
 
-        mExportButton = (ImageButton) view.findViewById(R.id.dashboardButtonExport);
+        mExportButton = (Button) view.findViewById(R.id.dashboardButtonExport);
+        mExportButton.setTransformationMethod(null);  // don't change to uppercase
         mExportButton.setOnClickListener(this);
         mExportButton.setOnLongClickListener(this);
 
