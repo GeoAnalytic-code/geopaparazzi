@@ -243,7 +243,7 @@ public class LogAnalysisActivity extends ListActivity implements View.OnClickLis
             if (!allFalse && !showSession) {
                 return false;
             }
-        } else if (isInfo(logMessageLC)) {
+        } else if (isInfo(logMessageLC, logMessage)) {
             if (!allFalse && !showEvento) {
                 return false;
             }
@@ -278,7 +278,7 @@ public class LogAnalysisActivity extends ListActivity implements View.OnClickLis
             color = COLOR_ERROR;
         } else if (isGps(logMessageLC)) {
             color = COLOR_GPS;
-        } else if (isInfo(logMessageLC)) {
+        } else if (isInfo(logMessageLC, logMessage)) {
             color = COLOR_INFO;
         } else if (isCheck(logMessageLC)) {
             color = COLOR_CHECK;
@@ -291,7 +291,8 @@ public class LogAnalysisActivity extends ListActivity implements View.OnClickLis
     }
 
     private static boolean isGps(String logMessageLC) {
-        return logMessageLC.contains("gps");
+        return logMessageLC.contains("gps") ||
+               logMessageLC.contains("satellites") ;
     }
 
     private static boolean isMemory(String logMessageLC) {
@@ -300,14 +301,15 @@ public class LogAnalysisActivity extends ListActivity implements View.OnClickLis
                 ;
     }
 
-    private static boolean isInfo(String logMessageLC) {
-        return logMessageLC.contains("daotrackoid: evento aggiunto") || //
-                logMessageLC.contains("daotrackoid: eventi made clean") || //
-                logMessageLC.contains("daotrackoid: closed evento");
+    private static boolean isInfo(String logMessageLC, String logMessage) {
+        return  !isError(logMessageLC,logMessage)  &&
+                !isGps(logMessageLC)    &&
+                !isMemory(logMessageLC) &&
+                !isCheck(logMessageLC);
     }
 
     private static boolean isCheck(String logMessageLC) {
-        return logMessageLC.contains("customtiledownloader called with");
+        return logMessageLC.contains("customtiledownloader");
     }
 
     private static boolean isError(String logMessageLC, String logMessage) {
